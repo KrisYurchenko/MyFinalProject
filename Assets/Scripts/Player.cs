@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+//У птички нет ограничения на высоту, обманул игру затапав и пролетая трубы сверху
 public class Player : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
@@ -17,7 +18,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating(nameof(AnimateSprite), 0.15f, 0.15f);
+        InvokeRepeating(nameof(AnimateSprite), 0.15f, 0.15f);//хардкод
     }
 
     private void OnEnable()
@@ -64,7 +65,7 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.tag == "Obstacle")
         {
-            FindObjectOfType<GameManager>().GameOver();
+            FindObjectOfType<GameManager>().GameOver();//FindObjectOfType опасен, может кинуть null, лучше проинициализировать значение в Awake и если не нашел кинуть exception
         } else if (other.gameObject.tag == "Scoring")
         {
             FindObjectOfType<GameManager>().IncreaseScore();

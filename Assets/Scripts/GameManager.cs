@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
-
+//Manager слово паразит, не несёт смысловой нагрузки
 public class GameManager : MonoBehaviour
 {
    public Player player;
